@@ -11,18 +11,8 @@ keyerrorlogo='
 line="---------------------------------------------------------"
 clear
 echo "$keyerrorlogo";
+echo " "
 
-echo "Please Input your Curl Command:"
-read curl
-echo " "
-echo " "
-echo "${line}"
-echo "The Curl Command:"
-echo "${curl}"
-echo "${line}"
-echo " "
-echo " "
-echo " "
 echo "Please Input the Phone Number, e.g.3859998880"
 read gv
 echo " "
@@ -31,6 +21,12 @@ echo "${line}"
 echo "The Google Voice Number:"
 echo "${gv}"
 echo "${line}"
+echo " "
+echo " "
+echo " "
+
+echo "Please Input your Curl Command:"
+read curl
 
 echo $curl > gv.txt
 
@@ -39,9 +35,17 @@ sed -i 's/\"%\"/%/g' gv.txt
 sed -i 's/$/& 2>\/dev\/null/g' gv.txt
 sed -i 's/mid=2/mid=6/' gv.txt
 sed -i 's/true%5D/%22%2B1'$gv'%22%2Ctrue%2C%22%22%5D/' gv.txt
+
+echo " "
+echo " "
+echo "${line}"
+echo "The Curl Command:"
+cat gv.txt
+echo "${line}"
 echo " "
 echo " "
 echo " "
+
 echo "Please input your slack incoming webhook:"
 read slack
 echo " "
