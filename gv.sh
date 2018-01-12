@@ -64,8 +64,8 @@ for (( i=1; i>0; i++ ))
     b='[[null,null,"There was an error with your request. Please try again."]]';
 	if [[ "$a" != "$b" ]];
     then
-        echo "执行失败/申请成功";
-        echo "共执行 $i 次";
+        echo "Get the $gv may be Successful, Total $i times" >> result.txt
+	echo "${a}" >> result.txt
         curl -X POST --data-urlencode "payload={\"channel\": \"#private\", \"username\": \"Notice\", \"text\": \"Google Voice may have been applied successfully.\", \"icon_emoji\": \":smile:\"}" "${slack}"
     else
         echo "$i times) ${a}"
