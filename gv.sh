@@ -18,7 +18,7 @@ read gv
 echo " "
 echo " "
 echo "${line}"
-echo "The Google Voice Number:"
+echo "Please Input The Google Voice Number:"
 echo "${gv}"
 echo "${line}"
 echo " "
@@ -39,7 +39,7 @@ sed -i 's/true%5D/%22%2B1'$gv'%22%2Ctrue%2C%22%22%5D/' gv.txt
 echo " "
 echo " "
 echo "${line}"
-echo "The Curl Command:"
+echo "Check the Curl Command:"
 cat gv.txt
 echo "${line}"
 echo " "
@@ -70,5 +70,4 @@ for (( i=1; i>0; i++ ))
     else
         echo "$i times) ${a}"
 	fi
-    sleep 0.5s;
 done
