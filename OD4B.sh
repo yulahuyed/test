@@ -23,6 +23,10 @@ echo " "
 
 echo "Please Input the Mount Path, e.g. '/home/test'"
 read MPATH
+if [ ! -d "${MPATH}" ]
+then
+  mkdir -r ${MPATH}
+fi
 echo " "
 echo " "
 echo "${LINE}"
@@ -72,7 +76,7 @@ then
   echo "continue..."
 else
   echo "use_locks 0" >> /etc/davfs2/davfs2.conf
+fi
 echo "[${MPATH}]" >> /etc/davfs2/davfs2.conf
-
 echo "add_header Cookie rtFa=${rtFa};FedAuth=${FedAuth}" >> /etc/davfs2/davfs2.conf
 sudo /sbin/mount.davfs ${OD4B} ${MPATH}
