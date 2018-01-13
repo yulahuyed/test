@@ -9,7 +9,7 @@ echo "${LINE}"
 echo " "
 
 echo "Please Input the OD4B Link, e.g. 'https://****-my.sharepoint.com/personal/name_domain_com/Documents/test'"
-read OD4B
+echo "Input";read OD4B
 echo " "
 echo " "
 echo "${LINE}"
@@ -23,7 +23,7 @@ echo " "
 
 
 echo "Please Input the Mount Path, e.g. '/home/test'"
-read MPATH
+echo "Input";read MPATH
 echo " "
 echo " "
 echo "${LINE}"
@@ -37,7 +37,7 @@ echo " "
 
 
 echo "Please Input the 'rtFa' Cookie, e.g. 'Ppr80/mXu........UAAAA='"
-read rtFa
+echo "Input";read rtFa
 echo " "
 echo " "
 echo "${LINE}"
@@ -52,7 +52,7 @@ echo " "
 
 
 echo "Please Input the 'FedAuth' Cookie, e.g. '77u/PD94b........9TUD4='"
-read FedAuth
+echo "Input";read FedAuth
 echo " "
 echo " "
 echo "${LINE}"
@@ -61,10 +61,10 @@ echo " "
 echo "${FedAuth}"
 echo "${LINE}"
 echo " "
-echo " "
-echo " "
+echo "Press Any Key to Start"
 
-sudo apt-get update && apt-get install davfs2
+
+sudo apt-get update && sudo apt-get install davfs2
 sudo chmod 777 /etc/davfs2/davfs2.conf
 echo "[${MPATH}]" >> /etc/davfs2/davfs2.conf
 echo "[add_header Cookie ${rtFa};${FedAuth}]" >> /etc/davfs2/davfs2.conf
