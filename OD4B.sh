@@ -91,4 +91,7 @@ else
 fi
 echo "[${MPATH}]" >> /etc/davfs2/davfs2.conf
 echo "add_header Cookie ${COOKIE}" >> /etc/davfs2/davfs2.conf
+
+rm cookie.txt get-sharepoint-auth-cookie.py
+
 sudo /sbin/mount.davfs ${OD4B} ${MPATH}
