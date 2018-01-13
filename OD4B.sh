@@ -66,14 +66,21 @@ read
 
 
 sudo apt-get update && sudo apt-get install -y davfs2 wget python
+
+if [ ! -f "/etc/davfs2/davfs2.conf" ]
+then 
+sudo echo " " >> /etc/davfs2/davfs2.conf
+sudo echo " " >> /etc/davfs2/davfs2.conf
+sudo chmod 777 /etc/davfs2/davfs2.conf
+else
 sudo chmod 777 /etc/davfs2/davfs2.conf
 echo " " >> /etc/davfs2/davfs2.conf
 echo " " >> /etc/davfs2/davfs2.conf
+fi
 
 wget https://raw.githubusercontent.com/yulahuyed/test/master/get-sharepoint-auth-cookie.py
 python get-sharepoint-auth-cookie.py ${OD4B} ${USERNAME} ${PASSWORD} > cookie.txt
-sed "s/ //g" cookie.txt
-sed "s/;$//g" cookie.txt
+sed -i "s/ //g" cookie.txt
 COOKIE=$(cat cookie.txt)
 DAVFS_CONFIG=$(grep -i "use_locks 0" /etc/davfs2/davfs2.conf)
 if [ "${DAVFS_CONFIG}" == "use_locks 0" ] 
