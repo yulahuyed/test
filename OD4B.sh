@@ -65,7 +65,7 @@ echo "Press Any Key to Start"
 read
 
 
-sudo apt-get update && sudo apt-get install -y davfs2 wget
+sudo apt-get update && sudo apt-get install -y davfs2 wget python
 sudo chmod 777 /etc/davfs2/davfs2.conf
 echo " " >> /etc/davfs2/davfs2.conf
 echo " " >> /etc/davfs2/davfs2.conf
