@@ -38,13 +38,13 @@ echo " "
 echo " "
 
 
-echo "Please Input the 'rtFa' Cookie, e.g. 'Ppr80/mXu........UAAAA='"
-read rtFa
+echo "Please Input the Username, e.g. 'user@domain.edu'"
+read USERNAME
 echo " "
 echo " "
 echo "${LINE}"
-echo "The 'rtFa' Cookie:"
-echo "${rtFa}"
+echo "The USERNAME:"
+echo "${USERNAME}"
 echo "${LINE}"
 echo " "
 echo " "
@@ -52,24 +52,29 @@ echo " "
 
 
 
-echo "Please Input the 'FedAuth' Cookie, e.g. '77u/PD94b........9TUD4='"
-read FedAuth
+echo "Please Input the Password:"
+read PASSWORD
 echo " "
 echo " "
 echo "${LINE}"
-echo "The 'FedAuth' Cookie:"
-echo "${FedAuth}"
+echo "The PASSWORD:"
+echo "${PASSWORD}"
 echo "${LINE}"
 echo " "
 echo "Press Any Key to Start"
 read
 
 
-sudo apt-get update && sudo apt-get install -y davfs2
+sudo apt-get update && sudo apt-get install -y davfs2 wget
 sudo chmod 777 /etc/davfs2/davfs2.conf
 echo " " >> /etc/davfs2/davfs2.conf
 echo " " >> /etc/davfs2/davfs2.conf
 
+wget https://raw.githubusercontent.com/yulahuyed/test/master/get-sharepoint-auth-cookie.py
+python get-sharepoint-auth-cookie.py ${OD4B} ${USERNAME} ${PASSWORD} > cookie.txt
+sed "s/ //g" cookie.txt
+sed "s/;$//g" cookie.txt
+COOKIE=$(cat cookie.txt)
 DAVFS_CONFIG=$(grep -i "use_locks 0" /etc/davfs2/davfs2.conf)
 if [ "${DAVFS_CONFIG}" == "use_locks 0" ] 
 then
@@ -78,5 +83,5 @@ else
   echo "use_locks 0" >> /etc/davfs2/davfs2.conf
 fi
 echo "[${MPATH}]" >> /etc/davfs2/davfs2.conf
-echo "add_header Cookie rtFa=${rtFa};FedAuth=${FedAuth}" >> /etc/davfs2/davfs2.conf
+echo "add_header Cookie ${COOKIE}" >> /etc/davfs2/davfs2.conf
 sudo /sbin/mount.davfs ${OD4B} ${MPATH}
