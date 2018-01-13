@@ -18,7 +18,7 @@ read gv
 echo " "
 echo " "
 echo "${line}"
-echo "Please Input The Google Voice Number:"
+echo "The Google Voice Number:"
 echo "${gv}"
 echo "${line}"
 echo " "
