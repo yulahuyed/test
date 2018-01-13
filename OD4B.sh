@@ -66,5 +66,5 @@ sudo chmod 777 /etc/davfs2/davfs2.conf
 echo " " >> /etc/davfs2/davfs2.conf
 echo " " >> /etc/davfs2/davfs2.conf
 echo "[${MPATH}]" >> /etc/davfs2/davfs2.conf
-echo "add_header Cookie ${rtFa};${FedAuth}" >> /etc/davfs2/davfs2.conf
+echo "add_header Cookie rtFa=${rtFa};FedAuth=${FedAuth}" >> /etc/davfs2/davfs2.conf
 sudo /sbin/mount.davfs ${OD4B} ${MPATH}
