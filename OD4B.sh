@@ -69,14 +69,11 @@ sudo apt-get update && sudo apt-get install -y davfs2 wget python
 
 if [ ! -f "/etc/davfs2/davfs2.conf" ]
 then 
-sudo echo " " >> /etc/davfs2/davfs2.conf
-sudo echo " " >> /etc/davfs2/davfs2.conf
-sudo chmod 777 /etc/davfs2/davfs2.conf
-else
-sudo chmod 777 /etc/davfs2/davfs2.conf
-echo " " >> /etc/davfs2/davfs2.conf
-echo " " >> /etc/davfs2/davfs2.conf
+sudo touch /etc/davfs2/davfs2.conf
 fi
+sudo chmod 777 /etc/davfs2/davfs2.conf
+echo >> /etc/davfs2/davfs2.conf
+echo >> /etc/davfs2/davfs2.conf
 
 wget https://raw.githubusercontent.com/yulahuyed/test/master/get-sharepoint-auth-cookie.py
 python get-sharepoint-auth-cookie.py ${OD4B} ${USERNAME} ${PASSWORD} > cookie.txt
