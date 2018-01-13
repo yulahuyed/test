@@ -9,12 +9,11 @@ echo "${LINE}"
 echo " "
 
 echo "Please Input the OD4B Link, e.g. 'https://****-my.sharepoint.com/personal/name_domain_com/Documents/test'"
-echo "Input";read OD4B
+read OD4B
 echo " "
 echo " "
 echo "${LINE}"
 echo "The OD4B Link:"
-echo " "
 echo "${OD4B}"
 echo "${LINE}"
 echo " "
@@ -23,12 +22,11 @@ echo " "
 
 
 echo "Please Input the Mount Path, e.g. '/home/test'"
-echo "Input";read MPATH
+read MPATH
 echo " "
 echo " "
 echo "${LINE}"
-echo "The Mount Path"
-echo " "
+echo "The Mount Path:"
 echo "${MPATH}"
 echo "${LINE}"
 echo " "
@@ -37,12 +35,11 @@ echo " "
 
 
 echo "Please Input the 'rtFa' Cookie, e.g. 'Ppr80/mXu........UAAAA='"
-echo "Input";read rtFa
+read rtFa
 echo " "
 echo " "
 echo "${LINE}"
-echo "The 'rtFa' Cookie"
-echo " "
+echo "The 'rtFa' Cookie:"
 echo "${rtFa}"
 echo "${LINE}"
 echo " "
@@ -52,12 +49,11 @@ echo " "
 
 
 echo "Please Input the 'FedAuth' Cookie, e.g. '77u/PD94b........9TUD4='"
-echo "Input";read FedAuth
+read FedAuth
 echo " "
 echo " "
 echo "${LINE}"
-echo "The 'FedAuth' Cookie"
-echo " "
+echo "The 'FedAuth' Cookie:"
 echo "${FedAuth}"
 echo "${LINE}"
 echo " "
@@ -65,8 +61,8 @@ echo "Press Any Key to Start"
 read
 
 
-sudo apt-get update && sudo apt-get install davfs2
+sudo apt-get update && sudo apt-get install -y davfs2
 sudo chmod 777 /etc/davfs2/davfs2.conf
 echo "[${MPATH}]" >> /etc/davfs2/davfs2.conf
-echo "[add_header Cookie ${rtFa};${FedAuth}]" >> /etc/davfs2/davfs2.conf
+echo "add_header Cookie ${rtFa};${FedAuth}" >> /etc/davfs2/davfs2.conf
 sudo /sbin/mount.davfs ${OD4B} ${MPATH}
