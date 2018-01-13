@@ -62,6 +62,7 @@ echo "${FedAuth}"
 echo "${LINE}"
 echo " "
 echo "Press Any Key to Start"
+read
 
 
 sudo apt-get update && sudo apt-get install davfs2
