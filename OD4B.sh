@@ -3,8 +3,8 @@
 LINE="---------------------------------------------------------"
 clear
 echo "${LINE}"
-       Mount OneDrive For Business on Ubuntu/Debian
-                                      By YHIBLOG
+echo "      Mount OneDrive For Business on Ubuntu/Debian       "
+echo "                                        By YHIBLOG       "
 echo "${LINE}"
 echo " "
 
