@@ -25,7 +25,7 @@ echo "Please Input the Mount Path, e.g. '/home/test'"
 read MPATH
 if [ ! -d "${MPATH}" ]
 then
-  mkdir -p ${MPATH}
+  sudo mkdir -p ${MPATH}
 fi
 echo " "
 echo " "
