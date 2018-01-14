@@ -73,13 +73,13 @@ read
 for (( i=1; i>0; i++ ))
     do
 	a=`bash gv.txt`;
-    b='[[null,null,"There was an error with your request. Please try again."]]';
-	if [[ "$a" != "$b" ]];
-    then
-        echo "Maybe Get the $gv Successful, Total $i times" >> result.txt
-	echo "${a}" >> result.txt
-        curl -X POST --data-urlencode "payload={\"channel\": \"#${SLACK_CHANNEL}\", \"username\": \"Notice\", \"text\": \"Total $i times, Google Voice may have been applied successfully.\", \"icon_emoji\": \":smile:\"}" "${SLACK_WEBHOOK}"
-    else
-        echo "$i times) ${a}"
+	b="[]"
+	if [[ "$a" == "$b" ]];
+		then
+			echo "Maybe get the $gv successful, Total $i times" >> result.txt
+			echo "${a}" >> result.txt
+			curl -X POST --data-urlencode "payload={\"channel\": \"#${SLACK_CHANNEL}\", \"username\": \"Notice\", \"text\": \"Total $i times, $gv may have been applied successfully.\", \"icon_emoji\": \":smile:\"}" "${SLACK_WEBHOOK}"
+		else
+			echo "$i times) ${a}"
 	fi
 done
