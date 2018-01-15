@@ -1,16 +1,11 @@
 #!/bin/bash
-keyerrorlogo='
-==================================================================
-
-              --------- Google Voice----------
-		   		   
-                                         -----  jialezi & YHIBLOG
-==================================================================';
 
 
 line="---------------------------------------------------------"
 clear
-echo "$keyerrorlogo";
+echo "${line}"
+echo "                 Google Voice (YHIBLOG)                  "
+echo "${line}"
 echo " "
 
 echo "Please Input the Phone Number, e.g. 3859998880"
@@ -76,9 +71,9 @@ for (( i=1; i>0; i++ ))
 	b="[]"
 	if [[ "$a" == "$b" ]];
 		then
-			echo "Maybe get the $gv successful, Total $i times" >> result.txt
+			echo "Get the $gv successful, Total $i times" >> result.txt
 			echo "${a}" >> result.txt
-			curl -X POST --data-urlencode "payload={\"channel\": \"#${SLACK_CHANNEL}\", \"username\": \"Notice\", \"text\": \"Total $i times, $gv may have been applied successfully.\", \"icon_emoji\": \":smile:\"}" "${SLACK_WEBHOOK}"
+			curl -X POST --data-urlencode "payload={\"channel\": \"#${SLACK_CHANNEL}\", \"username\": \"Notice\", \"text\": \"Total $i times, $gv have been applied successfully.\", \"icon_emoji\": \":smile:\"}" "${SLACK_WEBHOOK}"
 			exit 0
 		else
 			echo "$i times) ${a}"
